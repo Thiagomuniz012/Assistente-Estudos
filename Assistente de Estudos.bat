@@ -298,7 +298,7 @@ ECHO :: TAGS SEMANTICAS:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo.
 echo ^<article^>: Usada para representar um conteudo independente e autossuficiente.
-echo Exemplo: 
+echo Ex.:
 echo        ^<article^>
 echo            ^<h1^>Titulo do Artigo^</h1^>
 echo            ^<p^>Este e um artigo interessante sobre um topico especifico.^</p^>
@@ -306,57 +306,57 @@ echo            ^<p^>Mais conteudo do artigo aqui...^</p^>
 echo        ^</article^>
 ECHO.
 echo ^<aside^>: Utilizada para conteudo relacionado, mas nao essencial para o conteudo principal.
-echo Exemplo: 
+echo Ex.:
 echo        ^<aside^>
 echo            ^<h2^>Barra Lateral^</h2^>
 ECHO            ^<p^>Informacoes relacionadas ou anuncios podem ser exibidos aqui.^</p^>
 echo        ^</aside^>
 ECHO.
 echo ^<details^>: Cria um elemento de controle de detalhes que pode ser aberto ou fechado.
-echo Exemplo: 
+echo Ex.:
 echo        ^<details^>
 echo            ^<summary^>Mostrar mais^</summary^>
 echo            ^<p^>Este e um conteudo adicional que pode ser expandido ou recolhido.^</p^>
 echo        ^</details^>
 ECHO.
 echo ^<figure^>: Envolve qualquer conteudo referenciado no texto, como imagens, graficos, tabelas, etc.
-echo Exemplo: 
+echo Ex.:
 echo        ^<figure^>
 echo            ^<img src="imagem.jpg"^>
 echo        ^</figure^>
 ECHO.
 echo ^<figcaption^>: Usada para adicionar uma legenda a um elemento ^<figure^>.
-echo Exemplo: 
+echo Ex.:
 echo        ^<figure^>
 echo            ^<img src="imagem.jpg"^>
 echo            ^<figcaption^>Legenda da imagem^</figcaption^>
 echo        ^</figure^>
 ECHO.
 echo ^<footer^>: Utilizada para representar informacoes de rodape.
-echo Exemplo:
+echo Ex.:
 echo        ^<footer^>
 echo            ^<p^>2023 Meu Site^</p^>
 echo        ^</footer^>
 ECHO.
 echo ^<header^>: Usada para representar um cabecalho.
-echo Exemplo: 
+echo Ex.:
 echo        ^<header^>
 echo            ^<h1^>Meu Site^</h1^>
 ECHO        ^</header^>
 ECHO.
 echo ^<main^>: Indica o conteudo principal de um documento HTML.
-echo Exemplo: 
+echo Ex.:
 echo        ^<main^>
 ECHO            ^<h1^>Pagina Principal^</h1^>
 ECHO            ^<p^>Este e o conteudo principal da minha pagina.^</p^>
 ECHO        ^</main^>
 ECHO.
 echo ^<mark^>: Usada para destacar parte do texto.
-echo Exemplo: 
+echo Ex.:
 echo        ^<p^>Este e um ^<mark^>texto marcado^</mark^> em destaque.^</p^>
 ECHO.
 echo ^<nav^>: Utilizada para definir uma area de navegacao.
-echo Exemplo:
+echo Ex.:
 echo        ^<nav^>
 echo            ^<ul^>
 echo                ^<li^>Pagina Inicial^</li^>
@@ -365,21 +365,21 @@ echo            ^</ul^>
 echo        ^</nav^>
 ECHO.
 echo ^<section^>: Define uma secao de conteudo.
-echo Exemplo:
+echo Ex.:
 echo        ^<section^>
 ECHO            ^<h2^>Secao 1^</h2^>
 ECHO            ^<p^>Este e o conteudo da secao 1.^</p^>
 ECHO        ^</section^>
 ECHO.
 echo ^<summary^>: Usada em conjunto com a tag ^<details^> para fornecer um titulo ou resumo visivel.
-echo Exemplo:
+echo Ex.:
 echo        ^<details^>
 echo            ^<summary^>Mostrar mais^</summary^>
 ECHO            ^<p^>Este e um conteudo adicional que pode ser expandido ou recolhido.^</p^>
 echo        ^</details^>
 ECHO.
 echo ^<time^>: Utilizada para representar datas ou horarios.
-echo Exemplo:
+echo Ex.:
 echo        ^<p^>A data de hoje e ^<time datetime="2023-10-04"^>04 de outubro de 2023^</time^>.^</p^>
 ECHO.
 pause
@@ -413,6 +413,286 @@ echo    ^<embed src="multimidia.swf"^>
 echo.
 pause
 goto html_tags
+
+:tags_texto
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: TAGS DE TEXTO:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo ^<p^>: Usada para paragrafos de texto.
+echo Ex.:
+echo    ^<p^>Este de um paragrafo de texto.^</p^>
+ECHO.
+echo ^<h1^> a ^<h6^>: Define um cabecalho de nivel.
+echo Ex.:
+echo     ^<h1^>Titulo Principal^</h1^>
+ECHO.
+echo ^<strong^>: Usada para texto forte ou enfatizado.
+echo Ex.:
+echo    ^<p^>Este de um texto ^<strong^>importante^</strong^>.^</p^>
+ECHO.
+echo ^<em^>: Usada para texto enfatizado.
+echo Ex.:
+echo    ^<p^>Este de um texto ^<em^>enfatizado^</em^>.^</p^>
+ECHO.
+echo ^<u^>: Usada para sublinhar texto.
+echo Ex.:
+echo    ^<p^>Este de um texto ^<u^>sublinhado^</u^>.^</p^>
+ECHO.
+echo ^<s^>: Usada para texto tachado.
+echo Ex.:
+echo    ^<p^>Este de um texto ^<s^>tachado^</s^>.^</p^>
+ECHO.
+echo ^<blockquote^>: Usada para citacoes em bloco.
+echo Ex.:
+echo    ^<blockquote^>Isso de uma citacao em bloco.^</blockquote^>
+ECHO.
+echo ^<cite^>: Usada para citar o titulo de uma obra.
+echo Ex.:
+echo    ^<cite^>Nome do Livro^</cite^>
+ECHO.
+echo ^<sub^>: Usada para texto sobrescrito.
+echo Ex.:
+echo    ^<p^>H2O de a formula da agua (^<sub^>subscrito^</sub^>).^</p^>
+ECHO.
+echo ^<sup^>: Usada para texto sobrescrito.
+echo Ex.:
+echo    ^<p^>2^<sup^>3^</sup^> de igual a oito.^</p^>
+ECHO.
+echo ^<br^>: Insere uma quebra de linha.
+echo Ex.: 
+echo    Este E um texto com ^<br^> quebra de linha.^
+ECHO.
+echo ^<small^>: Define texto em tamanho pequeno.
+echo Ex.: 
+echo    ^<small^>Texto pequeno^</small^>
+ECHO.
+echo ^<del^>: Indica texto deletado.
+echo Ex.: 
+echo    ^<del^>Texto deletado^</del^>
+ECHO.
+echo ^<ins^>: Indica texto inserido.
+echo Ex.: 
+echo    ^<ins^>Texto inserido^</ins^>
+ECHO.
+echo ^<code^>: Usada para destacar cOdigo.
+echo Ex.: 
+echo    ^<code^>int main() {^</code^>
+echo    ^<code^>    printf("OlA, Mundo!");^</code^>
+echo    ^<code^>    return 0;^</code^>
+ECHO.
+echo ^<pre^>: Preserva formatacao de texto.
+echo Ex.: 
+echo    ^<pre^>Texto com formatacao preservada.^</pre^>
+ECHO.
+echo ^<kbd^>: Representa entrada do teo.
+echo Ex.:
+echo    ^<kbd^>Ctrl + C^</kbd^>
+ECHO.
+pause
+goto html_tags
+
+:tags_listas
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: TAGS DE LISTA:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo ^<ul^>: Usada para criar uma lista nao ordenada.
+echo Ex.: 
+echo        ^<ul^>
+echo            ^<li^>Item 1^</li^>
+echo            ^<li^>Item 2^</li^>
+echo            ^<li^>Item 3^</li^>
+echo        ^</ul^>
+ECHO.
+echo ^<ol^>: Usada para criar uma lista ordenada.
+echo Ex.: 
+echo        ^<ol^>
+echo            ^<li^>Item 1^</li^>
+echo            ^<li^>Item 2^</li^>
+echo            ^<li^>Item 3^</li^>
+echo        ^</ol^>
+ECHO.
+echo ^<li^>: Define um item de lista em ^<ul^> ou ^<ol^>.
+echo Ex.: 
+echo        ^<ul^>
+echo            ^<li^>Item 1^</li^>
+echo            ^<li^>Item 2^</li^>
+echo            ^<li^>Item 3^</li^>
+echo        ^</ul^>
+ECHO.
+echo ^<dl^>: Usada para criar uma lista de definicao.
+echo Ex.: 
+echo        ^<dl^>
+echo            ^<dt^>Termo 1^</dt^>
+echo            ^<dd^>Definicao 1^</dd^>
+echo            ^<dt^>Termo 2^</dt^>
+echo            ^<dd^>Definicao 2^</dd^>
+echo        ^</dl^>
+ECHO.
+echo ^<dt^>: Define um termo em uma lista de definicao (^<dl^>).
+echo Ex.: 
+echo        ^<dl^>
+echo            ^<dt^>Termo 1^</dt^>
+echo            ^<dd^>Definicao 1^</dd^>
+echo            ^<dt^>Termo 2^</dt^>
+echo            ^<dd^>Definicao 2^</dd^>
+echo        ^</dl^>
+ECHO.
+echo ^<dd^>: Define uma definicao em uma lista de definicao (^<dl^>).
+echo Ex.: 
+echo        ^<dl^>
+echo            ^<dt^>Termo 1^</dt^>
+echo            ^<dd^>Definicao 1^</dd^>
+echo            ^<dt^>Termo 2^</dt^>
+echo            ^<dd^>Definicao 2^</dd^>
+echo        ^</dl^>
+ECHO.
+pause
+goto html_tags
+
+:tags_tabelas
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: TAGS DE TABELA:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo ^<table^>: Usada para criar uma tabela.
+echo Ex.:
+echo    ^<table^>
+echo        ^<tr^>
+echo            ^<th^>Cabecalho 1^</th^>
+echo            ^<th^>Cabecalho 2^</th^>
+echo        ^</tr^>
+echo        ^<tr^>
+echo            ^<td^>Dado 1,1^</td^>
+echo            ^<td^>Dado 1,2^</td^>
+echo        ^</tr^>
+echo        ^<tr^>
+echo            ^<td^>Dado 2,1^</td^>
+echo            ^<td^>Dado 2,2^</td^>
+echo        ^</tr^>
+echo    ^</table^>
+ECHO.
+echo ^<tr^>: Define uma linha em uma tabela.
+echo Ex.:
+echo    ^<tr^>
+echo        ^<td^>Dado 1,1^</td^>
+echo        ^<td^>Dado 1,2^</td^>
+echo    ^</tr^>
+ECHO.
+echo ^<th^>: Define um cabecalho de coluna em uma tabela.
+echo Ex.:
+echo    ^<tr^>
+echo        ^<th^>Cabecalho 1^</th^>
+echo        ^<th^>Cabecalho 2^</th^>
+echo    ^</tr^>
+ECHO.
+echo ^<td^>: Define um dado de cdelula em uma tabela.
+echo Ex.:
+echo    ^<tr^>
+echo        ^<td^>Dado 1,1^</td^>
+echo        ^<td^>Dado 1,2^</td^>
+echo    ^</tr^>
+ECHO.
+echo ^<caption^>: Usada para adicionar uma legenda a tabela.
+echo Ex.:
+echo    ^<table^>
+echo        ^<caption^>Tabela de Exemplo^</caption^>
+echo        ^<tr^>
+echo            ^<th^>Cabecalho 1^</th^>
+echo            ^<th^>Cabecalho 2^</th^>
+echo        ^</tr^>
+echo        ^<tr^>
+echo            ^<td^>Dado 1,1^</td^>
+echo            ^<td^>Dado 1,2^</td^>
+echo        ^</tr^>
+echo    ^</table^>
+ECHO.
+echo ^<colgroup^>: Define grupos de colunas em uma tabela.
+echo Ex.:
+echo    ^<table^>
+echo        ^<colgroup^>
+echo            ^<col span="2"^>^</col^>
+echo            ^<col^>^</col^>
+echo        ^</colgroup^>
+echo        ^<tr^>
+echo            ^<th^>Cabecalho 1^</th^>
+echo            ^<th^>Cabecalho 2^</th^>
+echo        ^</tr^>
+echo        ^<tr^>
+echo            ^<td^>Dado 1,1^</td^>
+echo            ^<td^>Dado 1,2^</td^>
+echo        ^</tr^>
+echo    ^</table^>
+ECHO.
+pause
+goto html_tags
+
+:tags_formulario
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: TAGS DE FORMULARIOS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo ^<form^>: Usada para criar um formulario.
+echo Ex.:
+echo    ^<form action="/processar_dados" method="post"^>
+echo        \^<!-- Conteudo do formulario aqui --^>
+echo    ^</form^>
+ECHO.
+echo ^<input^>: Usada para criar campos de entrada.
+echo Ex.:
+echo    ^<input type="text" name="nome" placeholder="Seu Nome"^>^</input^>
+ECHO.
+echo ^<textarea^>: Usada para criar uma area de texto.
+echo Ex.:
+echo    ^<textarea name="comentario" rows="4" cols="50"^>Digite seu comentario aqui^</textarea^>
+ECHO.
+echo ^<select^>: Usada para criar uma lista suspensa.
+echo Ex.:
+echo    ^<select name="cidade"^>
+echo        ^<option value="ny"^>Nova York^</option^>
+echo        ^<option value="la"^>Los Angeles^</option^>
+echo        ^<option value="chicago"^>Chicago^</option^>
+echo    ^</select^>
+ECHO.
+echo ^<label^>: Usada para criar rotulos para campos de entrada.
+echo Ex.:
+echo    ^<label for="nome"^>Nome:^</label^>
+ECHO.
+echo ^<button^>: Usada para criar botoes em um formulario.
+echo Ex.:
+echo    ^<button type="submit"^>Enviar^</button^>
+ECHO.
+echo ^<fieldset^>: Usada para agrupar elementos de formulario.
+echo Ex.:
+echo    ^<fieldset^>
+echo        ^<legend^>Informacoes Pessoais^</legend^>
+echo        ^<!-- Campos de formulario aqui --^>
+echo    ^</fieldset^>
+ECHO.
+echo ^<legend^>: Usada para criar um titulo para um campo de formulario.
+echo Ex.:
+echo    ^<fieldset^>
+echo        ^<legend^>Informacoes Pessoais^</legend^>
+echo        ^<!-- Campos de formulario aqui --^>
+echo    ^</fieldset^>
+ECHO.
+echo ^<input type="checkbox"^>: Usada para caixas de selecao.
+echo Ex.:
+echo    ^<input type="checkbox" name="interesses" value="esportes"^>Esportes^</input^>
+ECHO.
+echo ^<input type="radio"^>: Usada para botoes de radio.
+echo Ex.:
+echo    ^<input type="radio" name="sexo" value="masculino"^>Masculino^</input^>
+echo    ^<input type="radio" name="sexo" value="feminino"^>Feminino^</input^>
+ECHO.
+pause
+goto html_tags
+
 
 :html_templates
 cls
@@ -613,19 +893,19 @@ echo.
 echo Valores comuns da propriedade "display" incluem:
 echo.
 echo 1. "block" - Torna o elemento um bloco retangular que ocupa toda a largura disponivel e inicia em uma nova linha.
-echo Exemplo:
+echo Ex.:
 echo   div {
 echo       display: block;
 echo   }
 echo.
 echo 2. "inline" - Torna o elemento em linha, permitindo que ele ocupe apenas o espaco necessario e nao inicie uma nova linha.
-echo Exemplo:
+echo Ex.:
 echo   span {
 echo       display: inline;
 echo   }
 echo.
 echo 3. "inline-block" - Semelhante ao "inline", mas permite definir largura e altura do elemento.
-echo Exemplo:
+echo Ex.:
 echo   button {
 echo       display: inline-block;
 echo       width: 100px;
@@ -633,39 +913,39 @@ echo       height: 40px;
 echo   }
 echo.
 echo 4. "none" - Torna o elemento invisivel e nao ocupa espaco na pagina.
-echo Exemplo:
+echo Ex.:
 echo   .hidden {
 echo       display: none;
 echo   }
 echo.
 echo 5. "flex" - Define o elemento como um container flexivel, permitindo o alinhamento e o dimensionamento de itens internos.
-echo Exemplo:
+echo Ex.:
 echo   .flex-container {
 echo       display: flex;
 echo       justify-content: space-between;
 echo   }
 echo.
 echo 6. "grid" - Define o elemento como um container de layout de grade, permitindo o posicionamento preciso de itens internos.
-echo Exemplo:
+echo Ex.:
 echo   .grid-container {
 echo       display: grid;
 echo       grid-template-columns: 1fr 1fr;
 echo   }
 echo.
 echo 7. "table" - Transforma o elemento em uma tabela HTML, com elementos filhos como celulas da tabela.
-echo Exemplo:
+echo Ex.:
 echo   table {
 echo       display: table;
 echo   }
 echo.
 echo 8. "inline-table" - Semelhante ao "table", mas permite que o elemento seja exibido em linha.
-echo Exemplo:
+echo Ex.:
 echo   ul {
 echo       display: inline-table;
 echo   }
 echo.
 echo 9. "list-item" - Torna o elemento um item de lista, como uma marca de lista HTML (por exemplo, "li").
-echo Exemplo:
+echo Ex.:
 echo   li {
 echo       display: list-item;
 echo   }
@@ -690,7 +970,7 @@ echo    }
 echo.
 echo No exemplo, os estilos dentro da media query sao aplicados apenas quando a largura da tela for igual ou menor a 600 pixels. Isso e util para criar designs responsivos.
 echo.
-echo Voce tambem pode usar as propriedades 'min-width' e 'max-width' para definir intervalos especificos de largura de tela. Por exemplo:
+echo Voce tambem pode usar as propriedades 'min-width' e 'max-width' para definir intervalos especificos de largura de tela. Por Ex.:
 echo.
 echo @media screen and (min-width: 601px) and (max-width: 1024px) {
 echo     /* Estilos para tablets em modo retrato e paisagem (largura entre 601px e 1024px) */
