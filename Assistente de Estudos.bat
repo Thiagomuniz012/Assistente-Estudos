@@ -12,6 +12,7 @@ ECHO :: 2 - HTML
 ECHO :: 3 - CSS
 ECHO :: 4 - JS
 ECHO :: 5 - SQL
+ECHO :: 6 - LINUX
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 set /p opcao=":: Digite o numero da opcao desejada: "
@@ -28,6 +29,8 @@ IF "%opcao%"=="0" (
     goto menu_js
 ) ELSE IF "%opcao%"=="5" (
     goto menu_sql
+) ELSE IF "%opcao%"=="6" (
+    goto menu_linux
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -92,13 +95,7 @@ IF "%baixar_git%" == "s" (
 ) ELSE (
     goto menu_git
 )
-
-
-
-
-
-
-
+F
 :git_configuracao
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -424,7 +421,6 @@ ECHO :: TEMPLATES HTML:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
 ECHO :: 1 - Pasta com Template basico com HTML, JS e CSS linkados.
-ECHO :: 2 - Modal
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p template_menu=":: Digite o numero da opcao desejada: "
 
@@ -432,8 +428,6 @@ IF "%template_menu%"=="0" (
     goto menu_html
 ) ELSE IF "%template_menu%"=="1" (
     goto template_padrao
-) ELSE IF "%template_menu%"=="2" (
-    goto template_modal
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -485,8 +479,6 @@ cd ..
   echo   ^</body^>
   echo ^</html^>
 ) > index.html
-
-
     ECHO.
     ECHO A pasta foi baixada e esta em sua area de trabalho.
     ECHO.
@@ -495,4 +487,357 @@ cd ..
 ) ELSE (
     pause
     goto html_templates
+)
+
+:menu_css
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu CSS
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Reset e Normalizacao CSS
+ECHO :: 2 - Layout em CSS
+ECHO :: 3 - Displays CSS
+ECHO :: 4 - Seletores CSS
+ECHO :: 5 - Pseudo-classes CSS
+ECHO :: 6 - Media Queries
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_css=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_css%"=="0" (
+    goto menu_principal
+) ELSE IF "%opcao_css%"=="1" (
+    goto css_reset
+) ELSE IF "%opcao_css%"=="2" (
+    goto css_layout
+) ELSE IF "%opcao_css%"=="3" (
+    goto css_displays
+) ELSE IF "%opcao_css%"=="4" (
+    goto css_seletores
+) ELSE IF "%opcao_css%"=="5" (
+    goto css_pseudo
+) ELSE IF "%opcao_css%"=="6" (
+    goto css_media_queries
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto menu_css
+)
+
+
+:css_reset
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: RESET E NORMALIZACAO CSS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Reset CSS - O reset CSS e usado para remover estilos padrao dos navegadores, garantindo uma base consistente.
+echo Ex.:
+echo    * {
+echo        margin: 0;
+echo        padding: 0;
+echo        box-sizing: border-box;
+echo    }
+echo.
+echo Normalizacao CSS - A normalizacao CSS e usada para estilizar elementos HTML de forma consistente em diferentes navegadores.
+echo Ex.:
+echo    body {
+echo        font-family: Arial, sans-serif;
+echo    }
+echo    a {
+echo        text-decoration: none;
+echo    }
+echo.
+pause
+goto menu_css
+
+:css_layout
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: LAYOUT EM CSS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Layout em CSS - O layout em CSS e fundamental para controlar a disposicao de 
+echo elementos na pagina, incluindo o posicionamento e o espacamento entre eles.
+echo.
+echo Exemplo de propriedade "display":
+echo.
+echo display: flex;
+echo - A propriedade "display" com o valor "flex" cria um layout flexivel. 
+echo Isso permite que os elementos se ajustem automaticamente ao tamanho da tela, 
+echo ocupando espaco igualmente na horizontal ou vertical, dependendo da direcao do flex container.
+echo.
+echo Exemplo de propriedade "float":
+echo.
+echo float: left;
+echo - A propriedade "float" com o valor "left" permite que o elemento flutue a esquerda
+echo de seu conteiner. Isso e util para criar layouts de varias colunas, onde os elementos flutuam lado a lado.
+echo.
+echo Exemplo de propriedade "position":
+echo.
+echo position: relative;
+echo - A propriedade "position" com o valor "relative" posiciona um elemento de forma relativa 
+echo ao seu local original. Voce pode usar as propriedades "top", "right", "bottom" e "left" para ajustar a posicao.
+echo.
+echo Exemplo de propriedades "margin" e "padding":
+echo.
+echo margin: 10px;
+echo - A propriedade "margin" define uma margem de 10 pixels em torno do elemento, criando espaco externo.
+echo.
+echo padding: 5px;
+echo - A propriedade "padding" define um preenchimento de 5 pixels dentro do elemento, criando espaco interno.
+echo.
+echo Exemplo de propriedade "box-sizing":
+echo.
+echo box-sizing: border-box;
+echo - A propriedade "box-sizing" com o valor "border-box" garante que as dimensoes do elemento 
+echo incluam preenchimento e borda, tornando o tamanho total previsivel.
+echo.
+echo Um layout bem planejado em CSS e essencial para criar designs responsivos e atraentes. 
+echo A escolha das propriedades e do modelo de layout depende dos requisitos do projeto e das preferencias de design.
+echo.
+pause
+goto menu_css
+
+:css_displays
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: DISPLAYS EM CSS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo A propriedade "display" em CSS controla como um elemento HTML e exibido na pagina.
+echo Ela pode receber varios valores, cada um afetando o comportamento do elemento de maneira diferente.
+echo.
+echo Valores comuns da propriedade "display" incluem:
+echo.
+echo 1. "block" - Torna o elemento um bloco retangular que ocupa toda a largura disponivel e inicia em uma nova linha.
+echo Exemplo:
+echo   div {
+echo       display: block;
+echo   }
+echo.
+echo 2. "inline" - Torna o elemento em linha, permitindo que ele ocupe apenas o espaco necessario e nao inicie uma nova linha.
+echo Exemplo:
+echo   span {
+echo       display: inline;
+echo   }
+echo.
+echo 3. "inline-block" - Semelhante ao "inline", mas permite definir largura e altura do elemento.
+echo Exemplo:
+echo   button {
+echo       display: inline-block;
+echo       width: 100px;
+echo       height: 40px;
+echo   }
+echo.
+echo 4. "none" - Torna o elemento invisivel e nao ocupa espaco na pagina.
+echo Exemplo:
+echo   .hidden {
+echo       display: none;
+echo   }
+echo.
+echo 5. "flex" - Define o elemento como um container flexivel, permitindo o alinhamento e o dimensionamento de itens internos.
+echo Exemplo:
+echo   .flex-container {
+echo       display: flex;
+echo       justify-content: space-between;
+echo   }
+echo.
+echo 6. "grid" - Define o elemento como um container de layout de grade, permitindo o posicionamento preciso de itens internos.
+echo Exemplo:
+echo   .grid-container {
+echo       display: grid;
+echo       grid-template-columns: 1fr 1fr;
+echo   }
+echo.
+echo 7. "table" - Transforma o elemento em uma tabela HTML, com elementos filhos como celulas da tabela.
+echo Exemplo:
+echo   table {
+echo       display: table;
+echo   }
+echo.
+echo 8. "inline-table" - Semelhante ao "table", mas permite que o elemento seja exibido em linha.
+echo Exemplo:
+echo   ul {
+echo       display: inline-table;
+echo   }
+echo.
+echo 9. "list-item" - Torna o elemento um item de lista, como uma marca de lista HTML (por exemplo, "li").
+echo Exemplo:
+echo   li {
+echo       display: list-item;
+echo   }
+echo.
+echo Lembre-se de que o valor "display" escolhido afetara a aparencia e o comportamento do elemento na pagina. 
+echo Escolha o valor que melhor se adequa as suas necessidades de layout.
+echo.
+pause
+goto menu_css
+
+:css_media_queries
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: MEDIA QUERIES:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Media Queries - Permitem estilos diferentes com base no tamanho da tela.
+echo Ex.:
+echo    @media screen and (max-width: 600px) {
+echo        /* Estilos para telas pequenas */
+echo    }
+echo.
+echo No exemplo, os estilos dentro da media query sao aplicados apenas quando a largura da tela for igual ou menor a 600 pixels. Isso e util para criar designs responsivos.
+echo.
+echo Voce tambem pode usar as propriedades 'min-width' e 'max-width' para definir intervalos especificos de largura de tela. Por exemplo:
+echo.
+echo @media screen and (min-width: 601px) and (max-width: 1024px) {
+echo     /* Estilos para tablets em modo retrato e paisagem (largura entre 601px e 1024px) */
+echo }
+echo.
+echo A consulta acima aplica estilos apenas quando a largura da tela estiver entre 601 e 1024 pixels.
+echo.
+echo Alem disso, aqui estao alguns tamanhos de midia padrao comuns:
+echo.
+echo 1. @media screen and (max-width: 600px): Estilos para dispositivos de largura igual ou menor a 600 pixels, geralmente smartphones em modo retrato.
+echo.
+echo 2. @media screen and (min-width: 601px) and (max-width: 1024px): Estilos para tablets em modo retrato e paisagem.
+echo.
+echo 3. @media screen and (min-width: 1025px) and (max-width: 1440px): Estilos para dispositivos de largura entre 1025 e 1440 pixels, como laptops e monitores de tamanho medio.
+echo.
+echo 4. @media screen and (min-width: 1441px): Estilos para dispositivos de largura igual ou superior a 1441 pixels, como monitores grandes.
+echo.
+pause
+goto menu_css
+
+:css_seletores
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: SELETORES CSS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Seletores CSS - Os seletores sao usados para selecionar elementos HTML e aplicar estilos a eles.
+echo Ex.:
+echo    h1 { color: blue; }
+echo    .classe { font-size: 16px; }
+echo    #id { background-color: #FFA500; }
+echo.
+echo No exemplo, "h1" seleciona todos os elementos h1 e define a cor para azul.
+echo ".classe" seleciona elementos com a classe "classe" e define o tamanho da fonte.
+echo "#id" seleciona um elemento com o ID "id" e define a cor de fundo.
+echo.
+pause
+goto menu_css
+
+
+:css_pseudo
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: PSEUDO-CLASSES NO CSS:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Pseudo-classes no CSS sao usadas para aplicar estilos a elementos HTML com base em seu estado ou interacao do usuario. 
+echo Um exemplo comum e a pseudo-classe :hover.
+echo.
+echo :hover - Essa pseudo-classe e usada para definir estilos quando o cursor do mouse esta sobre um elemento.
+echo Ex.:
+echo    a:hover {
+echo        /* Estilos quando o mouse passa sobre um link */
+echo        color: red;
+echo    }
+echo.
+echo Outras pseudo-classes uteis incluem:
+echo.
+echo :active - Estilos aplicados a um elemento quando ele esta ativo (por exemplo, quando um botao e pressionado).
+echo Ex.:
+echo    button:active {
+echo        /* Estilos quando o botao esta pressionado */
+echo        background-color: lightgray;
+echo    }
+echo.
+echo :focus - Estilos aplicados a um elemento quando ele ganha foco (geralmente por meio de clique ou teclado).
+echo Ex.:
+echo    input:focus {
+echo        /* Stilos quando o campo de entrada ganha foco */
+echo        border: 2px solid blue;
+echo    }
+echo.
+echo :nth-child - Permite selecionar elementos com base em sua posicao em relacao aos irmaos.
+echo Ex.:
+echo    ul li:nth-child(odd) {
+echo        /* Estilos aplicados a elementos impares da lista nao ordenada */
+echo        background-color: lightgray;
+echo    }
+echo.
+echo :first-child - Estilos aplicados ao primeiro filho de um elemento pai.
+echo Ex.:
+echo    div p:first-child {
+echo        /* Estilos aplicados ao primeiro paragrafo dentro de uma div */
+echo        font-weight: bold;
+echo    }
+echo.
+echo :last-child - Estilos aplicados ao ultimo filho de um elemento pai.
+echo Ex.:
+echo    ul li:last-child {
+echo        /* Stilos aplicados ao ultimo item da lista nao ordenada */
+echo        color: green;
+echo    }
+echo.
+echo Algumas outras pseudo-classes comuns incluem:
+echo.
+echo :not() - Permite selecionar elementos que nao correspondem a um seletor especifico.
+echo Ex.:
+echo    p:not(.special) {
+echo        /* Estilos aplicados a todos os paragrafos que nao tem a classe 'special' */
+echo        text-decoration: underline;
+echo    }
+echo.
+echo :nth-of-type() - Seleciona elementos com base em sua posicao em relacao aos irmaos do mesmo tipo.
+echo Ex.:
+echo    ul li:nth-of-type(3) {
+echo        /* Estilos aplicados ao terceiro item de uma lista nao ordenada */
+echo        color: red;
+echo    }
+echo.
+echo :nth-last-child() - Seleciona elementos com base em sua posicao contando de tras para frente.
+echo Ex.:
+echo    ol li:nth-last-child(2) {
+echo        /* Estilos aplicados ao segundo item de uma lista ordenada, contando de tras para frente */
+echo        background-color: yellow;
+echo    }
+echo.
+pause
+goto menu_css
+
+
+:menu_js
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu JS
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - JS Nativo
+ECHO :: 2 - React
+ECHO :: 3 - Angular
+ECHO :: 4 - Vue
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_js=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_js%"=="0" (
+    goto menu_principal
+) ELSE IF "%opcao_js%"=="2" (
+    goto js_nativo
+) ELSE IF "%opcao_js%"=="1" (
+    goto js_react
+) ELSE IF "%opcao_js%"=="3" (
+    goto js_angular
+) ELSE IF "%opcao_js%"=="4" (
+    goto js_vue
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto menu_js
 )
