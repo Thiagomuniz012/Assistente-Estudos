@@ -45,7 +45,7 @@ ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: Escolha uma Opcao:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
-ECHO :: 1 - Abrir site para baixar e instalar
+ECHO :: 1 - Abrir site do GIT
 ECHO :: 2 - Baixar e executar direto por aqui
 ECHO :: 3 - Configuracao
 ECHO :: 4 - Como fazer Commit com repositorio ja criado
@@ -58,7 +58,7 @@ IF "%opcao_git%"=="0" (
 ) ELSE IF "%opcao_git%"=="2" (
     goto git_download
 ) ELSE IF "%opcao_git%"=="1" (
-    start https://git-scm.com/downloads
+    start https://git-scm.com/
     pause
     goto menu_git
 ) ELSE IF "%opcao_git%"=="3" (
@@ -84,18 +84,22 @@ echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a in
 echo ::
 set /p baixar_git=":: Deseja baixar? (s/n) "
 
-IF "%baixar_git%" == "s" (
-    set "DownloadPath=C:\Users\%username%\Downloads\git.exe"
-    set "DownloadURL=https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe"
+    set "GitDownloadPath=C:\Users\%username%\Downloads\git.exe"
+    set "GitDownloadURL=https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe"
 
-    bitsadmin /transfer AcessoRemoto /priority normal %DownloadURL% %DownloadPath%
+IF "%baixar_git%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %GitDownloadURL% %GitDownloadPath%
+
+    start "" %GitDownloadPath%
 
     pause
     goto menu_git
 ) ELSE (
     goto menu_git
 )
-F
+
+
 :git_configuracao
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
