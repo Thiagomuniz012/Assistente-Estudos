@@ -466,7 +466,7 @@ echo    ^<p^>2^<sup^>3^</sup^> de igual a oito.^</p^>
 ECHO.
 echo ^<br^>: Insere uma quebra de linha.
 echo Ex.: 
-echo    Este E um texto com ^<br^> quebra de linha.^
+echo    Este E um texto com ^<br^> quebra de linha.
 ECHO.
 echo ^<small^>: Define texto em tamanho pequeno.
 echo Ex.: 
@@ -1104,24 +1104,188 @@ ECHO :: Escolha uma Opcao:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
 ECHO :: 1 - JS Nativo
-ECHO :: 2 - React
-ECHO :: 3 - Angular
-ECHO :: 4 - Vue
+ECHO :: 2 - Typescript
+ECHO :: 3 - React
+ECHO :: 4 - Angular
+ECHO :: 5 - Vue
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_js=":: Digite o numero da opcao desejada: "
 
 IF "%opcao_js%"=="0" (
     goto menu_principal
-) ELSE IF "%opcao_js%"=="2" (
-    goto js_nativo
 ) ELSE IF "%opcao_js%"=="1" (
-    goto js_react
+    goto js_nativo
+) ELSE IF "%opcao_js%"=="2" (
+    goto js_typescript
 ) ELSE IF "%opcao_js%"=="3" (
-    goto js_angular
+    goto js_react
 ) ELSE IF "%opcao_js%"=="4" (
+    goto js_angular
+) ELSE IF "%opcao_js%"=="5" (
     goto js_vue
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
     goto menu_js
+)
+
+:js_typescript
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu Typescript
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Abrir site do Typescript
+ECHO :: 2 - Como usar Typescript
+ECHO :: 3 - Criar pasta template TS
+ECHO :: 4 - 
+ECHO :: 5 - 
+ECHO :: 6 - 
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_js_typescript=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_js_typescript%"=="0" (
+    goto menu_js
+) ELSE IF "%opcao_js_typescript%"=="1" (
+    start https://www.typescriptlang.org/
+    pause
+    goto js_typescript
+) ELSE IF "%opcao_js_typescript%"=="2" (
+    goto js_typescript_comousar
+) ELSE IF "%opcao_js_typescript%"=="3" (
+    goto js_typescript_template
+) ELSE IF "%opcao_js_typescript%"=="4" (
+    goto 
+) ELSE IF "%opcao_js_typescript%"=="5" (
+    goto 
+) ELSE IF "%opcao_js_typescript%"=="6" (
+    goto 
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto js_typescript
+)
+
+:js_typescript_comousar
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: COMO USAR TYPESCRIPT:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+ECHO Primeiro crie uma pasta e dentro dela uma pasta chamada src.
+ECHO.
+ECHO projeto
+ECHO    src
+ECHO.
+ECHO Execute os proximos comandos na pasta projeto.
+ECHO.
+ECHO Como instalar:
+ECHO.
+ECHO De forma global: npm install -g typescript
+ECHO.
+ECHO De forma local execute os seguintes comandos:
+ECHO.
+ECHO npm init (cria o package.json)
+ECHO.
+ECHO npm install typescript -D (instala o typescript apenas naquele projeto)
+ECHO.
+ECHO Logo apos crie um novo arquivo .ts dentro de src
+ECHO.
+ECHO Como executar:
+ECHO.
+ECHO npx tsc src/index.ts (converte ts em js)
+ECHO.
+ECHO node src/index.js (executar o js)
+ECHO.
+ECHO Uma forma de automatizar esse processo e criando um arquivo de configuracao ts:
+ECHO.
+ECHO npx tsc --init
+ECHO.
+ECHO Pode ser alterado dentro o "rootDir":"./src" apontando para o src, assim nao precisa mais ficar apontando arquivo por aquivo ts para compilar.
+ECHO.
+ECHO Pode ser alterado dentro o "outDir":"./build" os arquivos compilados js irao para essa pasta.
+ECHO.
+ECHO Dentro de package.json criar um novo script chamado "start":"npx tsc && node build/index.js" dessa 
+echo forma quando executar o comando npm run start ele ira compilar e executar com apenas um comando.
+echo.
+pause
+goto js_typescript
+
+:js_typescript_template
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: A pasta vem com um template TS, apenas pegar e usar
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Conteudo da pasta:
+echo ::
+echo ::  projeto
+echo ::     src
+echo ::         index.ts
+echo ::     package.json
+echo ::     tsconfig.json
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p baixar_pasta_ts=":: Deseja criar o projeto? (s/n) "
+
+IF "%baixar_pasta_ts%"=="s" (
+    cls
+
+mkdir projeto
+cd projeto
+
+mkdir src
+cd src
+
+echo // seu codigo aqui > index.ts
+
+cd ..
+
+npm init -y
+
+npm install typescript -D
+
+npx tsc --init
+
+del package.json
+
+echo {  >> package.json
+echo   "name": "projeto", >> package.json
+echo   "version": "1.0.0", >> package.json
+echo   "description": "", >> package.json
+echo   "main": "index.js", >> package.json
+echo   "scripts": { >> package.json
+echo     "test": "echo \"Error: no test specified\" ^&^& exit 1", >> package.json
+echo     "start":"npx tsc && node build/index.js" >> package.json
+echo   }, >> package.json
+echo   "keywords": [], >> package.json
+echo   "author": "", >> package.json
+echo   "license": "ISC", >> package.json
+echo   "devDependencies": { >> package.json
+echo     "typescript": "^5.2.2" >> package.json
+echo   } >> package.json
+echo } >> package.json
+
+del tsconfig.json
+
+echo { >> tsconfig.json
+echo  "compilerOptions": { >> tsconfig.json
+echo  "target": "es2016", >> tsconfig.json
+echo  "module": "commonjs", >> tsconfig.json
+echo  "rootDir": "./src", >> tsconfig.json
+echo  "outDir":"./build", >> tsconfig.json
+echo  "esModuleInterop": true, >> tsconfig.json
+echo  "forceConsistentCasingInFileNames": true, >> tsconfig.json
+echo  "strict": true, >> tsconfig.json
+echo  "skipLibCheck": true >> tsconfig.json
+echo  } >> tsconfig.json
+echo } >> tsconfig.json
+
+    code .
+
+    pause
+    goto js_typescript
+) ELSE (
+    pause
+    goto js_typescript
 )
