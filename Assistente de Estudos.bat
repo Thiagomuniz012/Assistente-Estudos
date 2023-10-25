@@ -1138,7 +1138,7 @@ ECHO :: Escolha uma Opcao:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
 ECHO :: 1 - Abrir site do Typescript
-ECHO :: 2 - Como usar Typescript
+ECHO :: 2 - Como Instalar o Typescript
 ECHO :: 3 - Criar pasta template TS
 ECHO :: 4 - 
 ECHO :: 5 - 
@@ -1153,7 +1153,7 @@ IF "%opcao_js_typescript%"=="0" (
     pause
     goto js_typescript
 ) ELSE IF "%opcao_js_typescript%"=="2" (
-    goto js_typescript_comousar
+    goto js_typescript_comoinstalar
 ) ELSE IF "%opcao_js_typescript%"=="3" (
     goto js_typescript_template
 ) ELSE IF "%opcao_js_typescript%"=="4" (
@@ -1168,10 +1168,10 @@ IF "%opcao_js_typescript%"=="0" (
     goto js_typescript
 )
 
-:js_typescript_comousar
+:js_typescript_comoinstalar
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO :: COMO USAR TYPESCRIPT:
+ECHO :: COMO INSTALAR O TYPESCRIPT:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo.
 ECHO Primeiro crie uma pasta e dentro dela uma pasta chamada src.
@@ -1288,4 +1288,146 @@ echo } >> tsconfig.json
 ) ELSE (
     pause
     goto js_typescript
+)
+
+:js_angular
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu Angular
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Abrir site do Angular
+ECHO :: 2 - Como usar o Angular
+ECHO :: 3 - Criar projeto Angular
+ECHO :: 4 - Comandos de criacao
+ECHO :: 5 - 
+ECHO :: 6 - 
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_js_angular=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_js_angular%"=="0" (
+    goto menu_js
+) ELSE IF "%opcao_js_angular%"=="1" (
+    start https://angular.io/
+    pause
+    goto js_angular
+) ELSE IF "%opcao_js_angular%"=="2" (
+    goto js_angular_comousar
+) ELSE IF "%opcao_js_angular%"=="3" (
+    goto js_angular_template
+) ELSE IF "%opcao_js_angular%"=="4" (
+    goto js_angular_criacao
+) ELSE IF "%opcao_js_angular%"=="5" (
+    goto 
+) ELSE IF "%opcao_js_angular%"=="6" (
+    goto 
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto js_angular
+)
+
+:js_angular_comousar
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: COMO USAR O ANGULAR:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Para instalar o Angular CLI, execute o seguinte comando:
+echo.
+echo npm install -g @angular/cli
+echo.
+echo Como criar um novo projeto Angular:
+echo.
+echo ng new nome-do-projeto
+echo.
+echo Iniciar o servidor de desenvolvimento:
+echo.
+echo ng serve
+echo.
+pause
+goto js_angular
+
+:js_angular_criacao
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: COMANDOS DE CRIACAO ANGULAR:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+ECHO Criar um novo componente:
+ECHO.
+ECHO ng generate component nome-do-componente 
+ECHO.
+ECHO ou
+ECHO.
+ECHO ng g c nome-do-componente
+ECHO.
+echo Criar um novo modulo:
+echo.
+echo ng generate module nome-do-modulo
+echo.
+echo ou
+echo.
+echo ng g m nome-do-modulo
+echo.
+echo Criar um novo servico:
+echo.
+echo ng generate service nome-do-servico
+echo.
+echo ou
+echo.
+echo ng g s nome-do-service
+echo.
+echo Compilar o projeto:
+echo.
+echo ng build
+echo.
+echo Comandos Avancados do Angular:
+echo.
+echo Gerar um modulo de roteamento:
+echo.
+echo ng generate module app-routing --flat --module=app
+echo.
+echo Criar um novo modulo compartilhado:
+echo.
+echo ng generate module shared
+echo.
+echo ou
+echo.
+echo ng g m modulo shared
+echo.
+pause
+goto js_angular
+
+:js_angular_template
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Cria um novo projeto Angular, apenas pegar e usar
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Conteudo da pasta:
+echo ::
+echo ::  projeto
+echo ::     src
+echo ::         index.ts
+echo ::     package.json
+echo ::     tsconfig.json
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p baixar_pasta_ts=":: Deseja criar o projeto? (s/n) "
+
+IF "%baixar_pasta_ts%"=="s" (
+    cls
+
+    npx ng new projeto --defaults
+
+    cd projeto
+
+    code .
+
+    pause
+    goto js_angular
+) ELSE (
+    pause
+    goto js_angular
 )
