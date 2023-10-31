@@ -1140,7 +1140,7 @@ ECHO :: 0 - Voltar
 ECHO :: 1 - Abrir site do Typescript
 ECHO :: 2 - Como Instalar o Typescript
 ECHO :: 3 - Criar pasta template TS
-ECHO :: 4 - 
+ECHO :: 4 - Fundamentos Basicos
 ECHO :: 5 - 
 ECHO :: 6 - 
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1157,7 +1157,7 @@ IF "%opcao_js_typescript%"=="0" (
 ) ELSE IF "%opcao_js_typescript%"=="3" (
     goto js_typescript_template
 ) ELSE IF "%opcao_js_typescript%"=="4" (
-    goto 
+    goto js_typescript_basico
 ) ELSE IF "%opcao_js_typescript%"=="5" (
     goto 
 ) ELSE IF "%opcao_js_typescript%"=="6" (
@@ -1289,6 +1289,337 @@ echo } >> tsconfig.json
     pause
     goto js_typescript
 )
+
+:js_typescript_basico
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Fundamentos basicos do TypeScript
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Variaveis e Tipos
+ECHO :: 2 - Objetos e Interfaces
+ECHO :: 3 - Decisoes e Repeticoes
+ECHO :: 4 - Arrays
+ECHO :: 5 - 
+ECHO :: 6 - 
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_js_typescript_basico=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_js_typescript_basico%"=="0" (
+    goto js_typescript
+) ELSE IF "%opcao_js_typescript_basico%"=="1" (
+    goto js_typescript_basico_variaveisetipos
+) ELSE IF "%opcao_js_typescript_basico%"=="2" (
+    goto js_typescript_basico_objetoseinterfaces
+) ELSE IF "%opcao_js_typescript_basico%"=="3" (
+    goto js_typescript_basico_decisoeserepeticoes
+) ELSE IF "%opcao_js_typescript_basico%"=="4" (
+    goto js_typescript_basico_arrays
+) ELSE IF "%opcao_js_typescript_basico%"=="5" (
+    goto 
+) ELSE IF "%opcao_js_typescript_basico%"=="6" (
+    goto 
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto js_typescript_basico
+)
+
+:js_typescript_basico_variaveisetipos
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: VARIAVEIS E TIPOS EM TYPESCRIPT:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Declaracao de Variaveis:
+echo.
+echo let: Permite reatribuicao de valores.
+echo const: Define uma variavel de valor imutavel (constante).
+echo.
+echo let numero: number = 10;
+echo const mensagem: string = \"Ola, Mundo!\";
+echo.
+echo Tipos Basicos
+echo.
+echo Numeros:
+echo.
+echo let idade: number = 25;
+echo let preco: number = 19.99;
+echo.
+echo Strings:
+echo.
+echo let nome: string = \"Joao\";
+echo let sentenca: string = `Ola, ${nome}!`;
+echo.
+echo Booleanos:
+echo.
+echo let estaAtivo: boolean = true;
+echo let estaLogado: boolean = false;
+echo.
+echo Null, Undefined:
+echo.
+echo let nulo: null = null;
+echo let indefinido: undefined = undefined;
+echo.
+echo Any, Void:
+echo let retorno: void;
+echo let retornoView: any = false;
+echo.
+pause
+goto js_typescript_basico
+
+:js_typescript_basico_objetoseinterfaces
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: OBJETOS E INTERFACES EM TYPESCRIPT:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+echo Definindo Interfaces:
+echo.
+echo interface Pessoa {
+echo   nome: string;
+echo   idade: number;
+echo }
+echo.
+echo Criando Objetos:
+echo.
+echo const pessoa: Pessoa = {
+echo   nome: "Joao",
+echo   idade: 30
+echo };
+echo.
+echo Propriedades Opcionais:
+echo.
+echo Voce pode tornar propriedades em interfaces opcionais adicionando um ? ao nome da propriedade:
+echo.
+echo interface Pessoa {
+echo   nome: string;
+echo   idade?: number;
+echo }
+echo.
+echo const pessoa1: Pessoa = { nome: "Maria" };
+echo const pessoa2: Pessoa = { nome: "Pedro", idade: 25 };
+echo.
+echo Extensao de Interfaces:
+echo.
+echo Voce pode estender uma interface a partir de outra para reutilizar propriedades e adicionar novas:
+echo.
+echo interface Pessoa {
+echo   nome: string;
+echo   idade: number;
+echo }
+echo.
+echo interface Estudante extends Pessoa {
+echo   matricula: string;
+echo }
+echo.
+echo const estudante: Estudante = { nome: "Ana", idade: 21, matricula: "ABC123" };
+echo.
+echo Implementacao de Classes:
+echo.
+echo Interfaces podem ser usadas para garantir que uma classe tenha certos metodos e propriedades. Isso e util para implementar contratos.
+echo.
+echo interface Animal {
+echo     nome: string;
+echo     fazerSom(): void;
+echo   }
+echo.
+echo   class Cachorro implements Animal {
+echo     nome: string;
+echo.
+echo     constructor(nome: string) {
+echo       this.nome = nome;
+echo     }
+echo.
+echo     fazerSom() {
+echo       console.log(`${this.nome} faz um som de latido.`);
+echo     }
+echo   }
+echo.
+echo   const meuCachorro = new Cachorro("Rex");
+echo.
+echo   meuCachorro.fazerSom();
+echo.
+pause
+goto js_typescript_basico
+
+:js_typescript_basico_decisoeserepeticoes
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: DECISOES E REPETICOES EM TYPESCRIPT:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+ECHO Estruturas Condicionais:
+echo.
+ECHO if (Se):
+ECHO A estrutura if permite executar um bloco de codigo se uma condicao for avaliada como verdadeira.
+echo.
+ECHO const idade: number = 18;
+echo.
+ECHO if (idade ^>^= 18) {
+ECHO   console.log("Voce e maior de idade.");
+ECHO } else {
+ECHO   console.log("Voce e menor de idade.");
+ECHO }
+echo.
+ECHO else if (Senao Se) e else (Senao):
+ECHO Voce pode usar else if para verificar varias condicoes e else para executar um bloco de codigo caso nenhuma das condicoes anteriores seja verdadeira.
+echo.
+ECHO onst nota: number = 85;
+echo.
+ECHO f (nota ^>^= 90) {
+ECHO   console.log("Nota A");
+ECHO } else if (nota ^>^= 80) {
+ECHO   console.log("Nota B");
+ECHO } else {
+ECHO   console.log("Nota C");
+ECHO }
+echo.
+ECHO Operador Ternario:
+ECHO O operador ternario e uma forma concisa de escrever uma decisao em uma unica linha.
+echo.
+ECHO const condicao: boolean = true;
+ECHO const resultado = condicao ? "Verdadeiro" : "Falso";
+echo.
+ECHO Estruturas de Repeticao:
+echo.
+ECHO for (Para):
+ECHO O loop for e usado para iterar um bloco de codigo um numero especifico de vezes.
+echo.
+ECHO for (let i = 0; i ^<^ 5; i++) {
+ECHO   console.log(`Iteracao ${i}`);
+ECHO }
+echo.
+ECHO while (Enquanto):
+ECHO O loop while executa um bloco de codigo enquanto uma condicao for verdadeira.
+echo.
+ECHO let contador = 0;
+ECHO while (contador ^<^ 5) {
+ECHO   console.log(`Iteracao ${contador}`);
+ECHO   contador++;
+ECHO }
+echo.
+ECHO do...while (Faca...Enquanto):
+ECHO O loop do...while executa um bloco de codigo pelo menos uma vez e continua enquanto uma condicao for verdadeira.
+echo.
+ECHO let numero = 0;
+ECHO do {
+ECHO   console.log(`Numero: ${numero}`);
+ECHO   numero++;
+ECHO } while (numero ^<^ 3);
+echo.
+ECHO for...of (Para...de):
+ECHO O loop for...of e usado para iterar sobre elementos de uma colecao (por exemplo, arrays).
+echo.
+ECHO const cores: string[] = ["vermelho", "verde", "azul"];
+ECHO for (const cor of cores) {
+ECHO   console.log(cor);
+ECHO }
+echo.
+ECHO Break e Continue:
+ECHO Voce pode usar break para sair de um loop prematuramente e continue para pular a iteracao atual e continuar para a proxima.
+echo.
+ECHO for (let i = 0; i ^<^ 5; i++) {
+ECHO   if (i === 3) {
+ECHO     break; // Sai do loop quando i e igual a 3.
+ECHO   }
+ECHO   if (i === 2) {
+ECHO     continue; // Pula a iteracao quando i e igual a 2.
+ECHO   }
+ECHO   console.log(`Iteracao ${i}`);
+ECHO }
+echo.
+pause
+goto js_typescript_basico
+
+:js_typescript_basico_arrays
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: TRABALHANDO COM ARRAYS EM TYPESCRIPT:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo.
+ECHO Declarando Arrays:
+echo.
+ECHO Array de numeros:
+echo.
+ECHO const numeros: number[] = [1, 2, 3, 4, 5];
+echo.
+ECHO Array de strings:
+echo.
+ECHO const frutas: string[] = ["Maca", "Banana", "Laranja"];
+echo.
+ECHO Array de tipos mistos:
+echo.
+ECHO const misto: (number I string)[] = [1, "dois", 3, "quatro"];
+echo.
+ECHO Usando operador diamante:
+echo.
+ECHO const animais: Array<string> = ["Cachorro", "Gato", "Peixe"];
+echo.
+ECHO Acessando Elementos:
+ECHO Voce pode acessar os elementos de um array usando o indice (zero-based) entre colchetes.
+echo.
+ECHO const fruta: string = frutas[0]; // "Maca"
+echo.
+ECHO Modificando e Adicionando Elementos:
+echo.
+ECHO Modificando um elemento:
+echo.
+ECHO frutas[1] = "Uva";
+echo.
+ECHO Adicionando elementos:
+echo.
+ECHO frutas.push("Abacaxi");
+echo.
+ECHO Removendo Elementos:
+echo.
+ECHO frutas.splice(1, 2); // Remove 2 elementos a partir do indice 1
+echo.
+ECHO Iterando sobre Arrays:
+ECHO Voce pode percorrer os elementos de um array usando loops, como for, for...of, forEach, entre outros.
+echo.
+ECHO Usando um loop for:
+echo.
+ECHO for (let i = 0; i ^<^ frutas.length; i++) {
+ECHO   console.log(frutas[i]);
+ECHO }
+echo.
+ECHO Usando for...of:
+echo.
+ECHO for (const fruta of frutas) {
+ECHO   console.log(fruta);
+ECHO }
+echo.
+ECHO Usando forEach:
+echo.
+ECHO frutas.forEach((fruta) =^>^ {
+ECHO   console.log(fruta);
+ECHO });
+echo.
+ECHO Metodos de Arrays:
+ECHO O TypeScript fornece uma variedade de metodos integrados para manipular arrays, como map, filter, reduce, find, entre outros.
+echo.
+ECHO Usando map:
+echo.
+ECHO const numerosDobrados = numeros.map((numero) =^>^ numero * 2);
+echo.
+ECHO Usando filter:
+echo.
+ECHO const numerosPares = numeros.filter((numero) =^>^ numero % 2 === 0);
+echo.
+ECHO Matrizes Multidimensionais:
+ECHO Voce pode criar matrizes multidimensionais (ou arrays de arrays) para armazenar dados em varias dimensoes.
+echo.
+ECHO const matriz: number[][] = [
+ECHO   [1, 2, 3],
+ECHO   [4, 5, 6],
+ECHO   [7, 8, 9]
+ECHO ];
+echo.
+pause
+goto js_typescript_basico
 
 :js_angular
 cls
