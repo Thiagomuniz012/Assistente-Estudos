@@ -13,6 +13,7 @@ ECHO :: 3 - CSS
 ECHO :: 4 - JS
 ECHO :: 5 - SQL
 ECHO :: 6 - LINUX
+ECHO :: 100 - APLICATIVOS E CONFIGURACOES
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 set /p opcao=":: Digite o numero da opcao desejada: "
@@ -31,10 +32,105 @@ IF "%opcao%"=="0" (
     goto menu_sql
 ) ELSE IF "%opcao%"=="6" (
     goto menu_linux
+) ELSE IF "%opcao%"=="100" (
+    goto menu_diversos
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
     goto menu_principal
+)
+
+:menu_diversos
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu de configuracao e download
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Download de aplicativos
+ECHO :: 2 - Configuracoes do windows e scripts
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_diversos=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_diversos%"=="0" (
+    goto menu_principal
+) ELSE IF "%opcao_diversos%"=="1" (
+    goto diversos_download
+) ELSE IF "%opcao_diversos%"=="2" (
+    goto diversos_configuracoes
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto menu_diversos
+)
+
+:diversos_download
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu de Downloads
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Download Node.js
+ECHO :: 2 - Download Git
+ECHO :: 3 - Download VSCode
+ECHO :: 4 - Download Java 17
+ECHO :: 5 - Download Android Studio
+ECHO :: 6 - Download NetBeans
+ECHO :: 7 - Download MongoDB Compass
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_diversos_download=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_diversos_download%"=="0" (
+    goto menu_diversos
+) ELSE IF "%opcao_diversos_download%"=="1" (
+    goto diversos_download_node
+) ELSE IF "%opcao_diversos_download%"=="2" (
+    goto diversos_download_git
+) ELSE IF "%opcao_diversos_download%"=="3" (
+    goto diversos_download_vscode
+) ELSE IF "%opcao_diversos_download%"=="4" (
+    goto diversos_download_java
+) ELSE IF "%opcao_diversos_download%"=="5" (
+    goto diversos_download_androidstudio
+) ELSE IF "%opcao_diversos_download%"=="5" (
+    goto diversos_download_netbeans
+) ELSE IF "%opcao_diversos_download%"=="5" (
+    goto diversos_download_mongodbcompass
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto diversos_download
+)
+
+:diversos_download_node
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Node.js:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco local C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Node versao 20.10.0 LTS
+echo ::
+set /p baixar_node=":: Deseja baixar? (s/n) "
+
+    set "NodeDownloadPath=C:\Users\%username%\Downloads\node-v20.10.0-x64.msi"
+    set "NodeDownloadURL=https://nodejs.org/dist/v20.10.0/node-v20.10.0-x64.msi"
+
+IF "%baixar_node%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %NodeDownloadURL% %NodeDownloadPath%
+
+    start "" %NodeDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
 )
 
 :menu_git
