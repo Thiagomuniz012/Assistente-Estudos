@@ -133,6 +133,62 @@ IF "%baixar_node%" == "s" (
     goto diversos_download
 )
 
+:diversos_download_git
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Git:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Git versao 2.43.0-64
+echo ::
+set /p baixar_git=":: Deseja baixar? (s/n) "
+
+    set "GitDownloadPath=C:\Users\%username%\Downloads\Git-2.43.0-64-bit.exe"
+    set "GitDownloadURL=https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/Git-2.43.0-64-bit.exe"
+
+IF "%baixar_git%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %GitDownloadURL% %GitDownloadPath%
+
+    start "" %GitDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_vscode
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download VSCode:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: VSCode versao 1.84.2
+echo ::
+set /p baixar_vscode=":: Deseja baixar? (s/n) "
+
+    set "vscodeDownloadPath=C:\Users\%username%\Downloads\VSCodeUserSetup-x64-1.84.2.exe"
+    set "vscodeDownloadURL=https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeUserSetup-x64-1.84.2.exe"
+
+IF "%baixar_vscode%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %vscodeDownloadURL% %vscodeDownloadPath%
+
+    start "" %vscodeDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
 :menu_git
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -142,59 +198,29 @@ ECHO :: Escolha uma Opcao:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
 ECHO :: 1 - Abrir site do GIT
-ECHO :: 2 - Baixar e executar direto por aqui
-ECHO :: 3 - Configuracao
-ECHO :: 4 - Como fazer Commit com repositorio ja criado
-ECHO :: 5 - Trabalhando com Branch
+ECHO :: 2 - Configuracao
+ECHO :: 3 - Como fazer Commit com repositorio ja criado
+ECHO :: 4 - Trabalhando com Branch
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_git=":: Digite o numero da opcao desejada: "
 
 IF "%opcao_git%"=="0" (
     goto menu_principal
-) ELSE IF "%opcao_git%"=="2" (
-    goto git_download
 ) ELSE IF "%opcao_git%"=="1" (
     start https://git-scm.com/
     pause
     goto menu_git
-) ELSE IF "%opcao_git%"=="3" (
+) ELSE IF "%opcao_git%"=="2" (
     goto git_configuracao
-) ELSE IF "%opcao_git%"=="4" (
+) ELSE IF "%opcao_git%"=="3" (
     goto git_commit
-) ELSE IF "%opcao_git%"=="5" (
+) ELSE IF "%opcao_git%"=="4" (
     goto git_branch
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
     goto menu_git
 )
-
-:git_download
-cls
-ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO :: Download Git:
-ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO ::
-echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
-echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
-echo ::
-set /p baixar_git=":: Deseja baixar? (s/n) "
-
-    set "GitDownloadPath=C:\Users\%username%\Downloads\git.exe"
-    set "GitDownloadURL=https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe"
-
-IF "%baixar_git%" == "s" (
-
-    bitsadmin /transfer AcessoRemoto /priority normal %GitDownloadURL% %GitDownloadPath%
-
-    start "" %GitDownloadPath%
-
-    pause
-    goto menu_git
-) ELSE (
-    goto menu_git
-)
-
 
 :git_configuracao
 cls
