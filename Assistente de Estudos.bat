@@ -95,9 +95,9 @@ IF "%opcao_diversos_download%"=="0" (
     goto diversos_download_java
 ) ELSE IF "%opcao_diversos_download%"=="5" (
     goto diversos_download_androidstudio
-) ELSE IF "%opcao_diversos_download%"=="5" (
+) ELSE IF "%opcao_diversos_download%"=="6" (
     goto diversos_download_netbeans
-) ELSE IF "%opcao_diversos_download%"=="5" (
+) ELSE IF "%opcao_diversos_download%"=="7" (
     goto diversos_download_mongodbcompass
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
@@ -238,6 +238,62 @@ IF "%baixar_androidstudio%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %androidstudioDownloadURL% %androidstudioDownloadPath%
 
     start "" %androidstudioDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_netbeans
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download NetBeans:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: NetBeans versao 19
+echo ::
+set /p baixar_netbeans=":: Deseja baixar? (s/n) "
+
+    set "netbeansDownloadPath=C:\Users\%username%\Downloads\Apache-NetBeans-19-bin-windows-x64.exe"
+    set "netbeansDownloadURL=https://dlcdn.apache.org/netbeans/netbeans-installers/19/Apache-NetBeans-19-bin-windows-x64.exe"
+
+IF "%baixar_netbeans%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %netbeansDownloadURL% %netbeansDownloadPath%
+
+    start "" %netbeansDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_mongodbcompass
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download MongoDB Compass:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: MongoDB Compass versao 1.40.4
+echo ::
+set /p baixar_mongodbcompass=":: Deseja baixar? (s/n) "
+
+    set "mongodbcompassDownloadPath=C:\Users\%username%\Downloads\mongodb-compass-1.40.4-win32-x64.exe"
+    set "mongodbcompassDownloadURL=https://downloads.mongodb.com/compass/mongodb-compass-1.40.4-win32-x64.exe"
+
+IF "%baixar_mongodbcompass%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %mongodbcompassDownloadURL% %mongodbcompassDownloadPath%
+
+    start "" %mongodbcompassDownloadPath%
 
     pause
     goto diversos_download
