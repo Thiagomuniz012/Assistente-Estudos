@@ -217,6 +217,34 @@ IF "%baixar_java%" == "s" (
     goto diversos_download
 )
 
+:diversos_download_androidstudio
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Android Studio:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Android Studio versao 2022.3.1.21
+echo ::
+set /p baixar_androidstudio=":: Deseja baixar? (s/n) "
+
+    set "androidstudioDownloadPath=C:\Users\%username%\Downloads\android-studio-2022.3.1.21-windows.exe"
+    set "androidstudioDownloadURL=https://r4---sn-uxaxh5g-8pme.gvt1.com/edgedl/android/studio/install/2022.3.1.21/android-studio-2022.3.1.21-windows.exe"
+
+IF "%baixar_androidstudio%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %androidstudioDownloadURL% %androidstudioDownloadPath%
+
+    start "" %androidstudioDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
 :menu_git
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
