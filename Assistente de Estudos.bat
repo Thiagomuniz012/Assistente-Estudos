@@ -189,6 +189,34 @@ IF "%baixar_vscode%" == "s" (
     goto diversos_download
 )
 
+:diversos_download_java
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Java:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: JDK versao 17.0.9
+echo ::
+set /p baixar_java=":: Deseja baixar? (s/n) "
+
+    set "javaDownloadPath=C:\Users\%username%\Downloads\jdk-17.0.9_windows-x64_bin.exe"
+    set "javaDownloadURL=https://download.oracle.com/java/17/archive/jdk-17.0.9_windows-x64_bin.exe"
+
+IF "%baixar_java%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %javaDownloadURL% %javaDownloadPath%
+
+    start "" %javaDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
 :menu_git
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
