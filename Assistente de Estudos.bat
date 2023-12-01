@@ -128,8 +128,8 @@ echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a in
 echo ::
 set /p baixar_chrome=":: Deseja baixar? (s/n) "
 
-    set "chromeDownloadPath=C:\Users\%username%\Downloads\ChromeSetup.exe"
-    set "chromeDownloadURL=https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B4E705BBC-5DCC-A18F-EB34-13D5C72CEC3D%7D%26lang%3Dpt-BR%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe"
+    set "chromeDownloadPath=C:\Users\%username%\Downloads\GoogleChromeStandaloneEnterprise64.msi"
+    set "chromeDownloadURL=https://dl.google.com/chrome/install/GoogleChromeStandaloneEnterprise64.msi"
 
 IF "%baixar_chrome%" == "s" (
 
