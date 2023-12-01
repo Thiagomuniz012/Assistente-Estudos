@@ -80,6 +80,8 @@ ECHO :: 4 - Download Java 17
 ECHO :: 5 - Download Android Studio
 ECHO :: 6 - Download NetBeans
 ECHO :: 7 - Download MongoDB Compass
+ECHO :: 8 - Download MySQL
+ECHO :: 9 - Download MySQL Workbench
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_diversos_download=":: Digite o numero da opcao desejada: "
 
@@ -99,6 +101,10 @@ IF "%opcao_diversos_download%"=="0" (
     goto diversos_download_netbeans
 ) ELSE IF "%opcao_diversos_download%"=="7" (
     goto diversos_download_mongodbcompass
+) ELSE IF "%opcao_diversos_download%"=="8" (
+    goto diversos_download_mysql
+) ELSE IF "%opcao_diversos_download%"=="9" (
+    goto diversos_download_mysqlworkbench
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -294,6 +300,62 @@ IF "%baixar_mongodbcompass%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %mongodbcompassDownloadURL% %mongodbcompassDownloadPath%
 
     start "" %mongodbcompassDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_mysql
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download MySQL:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: MySQL versao 8.0.35
+echo ::
+set /p baixar_mysql=":: Deseja baixar? (s/n) "
+
+    set "mysqlDownloadPath=C:\Users\%username%\Downloads\mysql-installer-web-community-8.0.35.0.msi"
+    set "mysqlDownloadURL=https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-web-community-8.0.35.0.msi"
+
+IF "%baixar_mysql%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %mysqlDownloadURL% %mysqlDownloadPath%
+
+    start "" %mysqlDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_mysqlworkbench
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download MySQL Workbench:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: MySQL versao 8.0.34
+echo ::
+set /p baixar_mysqlworkbench=":: Deseja baixar? (s/n) "
+
+    set "mysqlworkbenchDownloadPath=C:\Users\%username%\Downloads\mysql-workbench-community-8.0.34-winx64.msi"
+    set "mysqlworkbenchDownloadURL=https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.34-winx64.msi"
+
+IF "%baixar_mysqlworkbench%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %mysqlworkbenchDownloadURL% %mysqlworkbenchDownloadPath%
+
+    start "" %mysqlworkbenchDownloadPath%
 
     pause
     goto diversos_download
