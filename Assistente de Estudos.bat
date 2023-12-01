@@ -73,41 +73,73 @@ ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: Escolha uma Opcao:
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO :: 0 - Voltar
-ECHO :: 1 - Download Node.js
-ECHO :: 2 - Download Git
-ECHO :: 3 - Download VSCode
-ECHO :: 4 - Download Java 17
-ECHO :: 5 - Download Android Studio
-ECHO :: 6 - Download NetBeans
-ECHO :: 7 - Download MongoDB Compass
-ECHO :: 8 - Download MySQL
-ECHO :: 9 - Download MySQL Workbench
+ECHO :: 1 - Download Chrome
+ECHO :: 2 - Download Node.js
+ECHO :: 3 - Download Git
+ECHO :: 4 - Download VSCode
+ECHO :: 5 - Download Java 17
+ECHO :: 6 - Download Android Studio
+ECHO :: 7 - Download NetBeans
+ECHO :: 8 - Download MongoDB Compass
+ECHO :: 9 - Download MySQL
+ECHO :: 10 - Download MySQL Workbench
+ECHO :: 11 - Download Virtual Box
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_diversos_download=":: Digite o numero da opcao desejada: "
 
 IF "%opcao_diversos_download%"=="0" (
     goto menu_diversos
 ) ELSE IF "%opcao_diversos_download%"=="1" (
-    goto diversos_download_node
+    goto diversos_download_chrome
 ) ELSE IF "%opcao_diversos_download%"=="2" (
-    goto diversos_download_git
+    goto diversos_download_node
 ) ELSE IF "%opcao_diversos_download%"=="3" (
-    goto diversos_download_vscode
+    goto diversos_download_git
 ) ELSE IF "%opcao_diversos_download%"=="4" (
-    goto diversos_download_java
+    goto diversos_download_vscode
 ) ELSE IF "%opcao_diversos_download%"=="5" (
-    goto diversos_download_androidstudio
+    goto diversos_download_java
 ) ELSE IF "%opcao_diversos_download%"=="6" (
-    goto diversos_download_netbeans
+    goto diversos_download_androidstudio
 ) ELSE IF "%opcao_diversos_download%"=="7" (
-    goto diversos_download_mongodbcompass
+    goto diversos_download_netbeans
 ) ELSE IF "%opcao_diversos_download%"=="8" (
-    goto diversos_download_mysql
+    goto diversos_download_mongodbcompass
 ) ELSE IF "%opcao_diversos_download%"=="9" (
+    goto diversos_download_mysql
+) ELSE IF "%opcao_diversos_download%"=="10" (
     goto diversos_download_mysqlworkbench
+) ELSE IF "%opcao_diversos_download%"=="11" (
+    goto diversos_download_virtualbox
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
+    goto diversos_download
+)
+
+:diversos_download_chrome
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Chrome:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco local C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+set /p baixar_chrome=":: Deseja baixar? (s/n) "
+
+    set "chromeDownloadPath=C:\Users\%username%\Downloads\ChromeSetup.exe"
+    set "chromeDownloadURL=https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B4E705BBC-5DCC-A18F-EB34-13D5C72CEC3D%7D%26lang%3Dpt-BR%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe"
+
+IF "%baixar_chrome%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %chromeDownloadURL% %chromeDownloadPath%
+
+    start "" %chromeDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
     goto diversos_download
 )
 
@@ -356,6 +388,34 @@ IF "%baixar_mysqlworkbench%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %mysqlworkbenchDownloadURL% %mysqlworkbenchDownloadPath%
 
     start "" %mysqlworkbenchDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
+:diversos_download_virtualbox
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download VirtualBox:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: VirtualBox versao 7.0.12
+echo ::
+set /p baixar_virtualbox=":: Deseja baixar? (s/n) "
+
+    set "virtualboxDownloadPath=C:\Users\%username%\Downloads\VirtualBox-7.0.12-159484-Win.exe"
+    set "virtualboxDownloadURL=https://download.virtualbox.org/virtualbox/7.0.12/VirtualBox-7.0.12-159484-Win.exe"
+
+IF "%baixar_virtualbox%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %virtualboxDownloadURL% %virtualboxDownloadPath%
+
+    start "" %virtualboxDownloadPath%
 
     pause
     goto diversos_download
