@@ -423,6 +423,207 @@ IF "%baixar_virtualbox%" == "s" (
     goto diversos_download
 )
 
+:diversos_configuracoes
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Voce esta no menu de Configuracoes e Scripts
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Escolha uma Opcao:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: 0 - Voltar
+ECHO :: 1 - Atualizar o NPM
+ECHO :: 2 - Liberar comandos especiais
+ECHO :: 3 - Mostrar dependencias globais
+ECHO :: 4 - Instalar principais dependencias node de forma global
+ECHO :: 5 - Instalar principais extensoes VSCode
+ECHO :: 6 - Script para setar variaveis de ambiente do Java e Android Studio
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+set /p opcao_diversos_configuracoes=":: Digite o numero da opcao desejada: "
+
+IF "%opcao_diversos_configuracoes%"=="0" (
+    goto menu_diversos
+) ELSE IF "%opcao_diversos_configuracoes%"=="1" (
+    goto diversos_configuracoes_atualizarnpm
+) ELSE IF "%opcao_diversos_configuracoes%"=="2" (
+    goto diversos_configuracoes_comandosespeciais
+) ELSE IF "%opcao_diversos_configuracoes%"=="3" (
+    goto diversos_configuracoes_mostrardependenciasglobais
+) ELSE IF "%opcao_diversos_configuracoes%"=="4" (
+    goto diversos_configuracoes_instalardependenciasglobais
+) ELSE IF "%opcao_diversos_configuracoes%"=="5" (
+    goto diversos_configuracoes_instalarextensoesvscode
+) ELSE IF "%opcao_diversos_configuracoes%"=="6" (
+    goto diversos_configuracoes_variaveisdeambiente
+) ELSE (
+    ECHO Opcao invalida! Por favor, escolha uma opcao valida.
+    pause
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_atualizarnpm
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Atualizar NPM:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera atualizado o NPM para sua ultima versao
+echo ::
+set /p atualizar_npm=":: Deseja atualizar? (s/n) "
+
+IF "%atualizar_npm%" == "s" (
+    start /wait npm install -g npm@latest
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_comandosespeciais
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Liberar comandos especiais:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera liberado comandos especiais como ng, expo, sem a 
+echo :: necessidade de utilizar npx antes deles
+echo ::
+set /p liberar_comandos=":: Deseja liberar? (s/n) "
+
+IF "%liberar_comandos%" == "s" (
+    start /wait powershell -Command "Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned"
+    echo.
+    echo Liberado!
+    echo.
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_mostrardependenciasglobais
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Mostrar dependencias globais:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera mostrado as dependencias instaladas de forma global
+echo ::
+set /p mostrar_dependencias=":: Deseja mostrar? (s/n) "
+
+IF "%mostrar_dependencias%" == "s" (
+    start /wait npm list -g --depth=0
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_instalardependenciasglobais
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Instalar principais dependencias e tecnologias Node de forma global:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera instalado as seguintes dependencias:
+echo ::
+echo :: @angular/cli, @vue/cli, react-scripts@latest, create-react-app, expo-cli,
+echo :: eas-cli, typescript, firebase-tools, react-native-cli, create-vite, netlify-cli, 
+echo :: vercel, webpack, font-awesome, sass, less, tailwindcss, pug-cli, 
+echo :: styled-components, firebase, react, uuid, jquery, @ionic/cli
+echo ::
+set /p instalardependenciasglobais=":: Deseja instalar? (s/n) "
+
+IF "%instalardependenciasglobais%" == "s" (
+    start /wait npm install -g @angular/cli @vue/cli react-scripts@latest create-react-app expo-cli eas-cli typescript firebase-tools react-native-cli create-vite netlify-cli vercel webpack font-awesome sass less tailwindcss pug-cli styled-components firebase react uuid jquery @ionic/cli
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_instalarextensoesvscode
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Instalar principais extensoes VSCode:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera instalado as seguintes extensoes:
+echo ::
+echo :: naumovs.color-highlight, ritwickdey.LiveServer, MS-CEINTL.vscode-language-pack-pt-BR
+echo :: esbenp.prettier-vscode, PKief.material-icon-theme, formulahendry.auto-close-tag
+echo :: formulahendry.auto-rename-tag, abusaidm.html-snippets, ecmel.vscode-html-css
+echo :: xabikos.JavaScriptSnippets, swellaby.node-pack, NilsSoderman.batch-runner
+echo :: dsznajder.es7-react-js-snippets, Vue.volar, Angular.ng-template
+echo :: vscjava.vscode-java-pack, vscjava.vscode-maven, vscjava.vscode-java-debug
+echo :: vscjava.vscode-java-test, vscjava.vscode-java-dependency, redhat.java
+echo :: ms-dotnettools.vscode-dotnet-runtime, kreativ-software.csharpextensions
+echo :: ms-dotnettools.csharp, ms-dotnettools.csdevkit
+echo ::
+set /p instalarextensoesvscode=":: Deseja instalar? (s/n) "
+
+IF "%instalarextensoesvscode%" == "s" (
+    call code --install-extension naumovs.color-highlight ^
+&& call code --install-extension ritwickdey.LiveServer ^
+&& call code --install-extension MS-CEINTL.vscode-language-pack-pt-BR ^
+&& call code --install-extension esbenp.prettier-vscode ^
+&& call code --install-extension PKief.material-icon-theme ^
+&& call code --install-extension formulahendry.auto-close-tag ^
+&& call code --install-extension formulahendry.auto-rename-tag ^
+&& call code --install-extension abusaidm.html-snippets ^
+&& call code --install-extension ecmel.vscode-html-css ^
+&& call code --install-extension xabikos.JavaScriptSnippets ^
+&& call code --install-extension swellaby.node-pack ^
+&& call code --install-extension NilsSoderman.batch-runner ^
+&& call code --install-extension dsznajder.es7-react-js-snippets ^
+&& call code --install-extension Vue.volar ^
+&& call code --install-extension Angular.ng-template ^
+&& call code --install-extension vscjava.vscode-java-pack ^
+&& call code --install-extension vscjava.vscode-maven ^
+&& call code --install-extension vscjava.vscode-java-debug ^
+&& call code --install-extension vscjava.vscode-java-test ^
+&& call code --install-extension vscjava.vscode-java-dependency ^
+&& call code --install-extension redhat.java ^
+&& call code --install-extension ms-dotnettools.vscode-dotnet-runtime ^
+&& call code --install-extension kreativ-software.csharpextensions ^
+&& call code --install-extension ms-dotnettools.csharp ^
+&& call code --install-extension ms-dotnettools.csdevkit ^
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
+:diversos_configuracoes_variaveisdeambiente
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Setar variaveis de ambiente:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera baixado um arquivo .reg no mesmo diretorio que este batch,
+echo :: apenas execute e confirme
+echo ::
+echo :: Sera setada as variaveis:
+echo ::
+echo :: ANDROID_HOME, ANDROID_STUDIO_HOME, ANDROID_SDK_ROOT, JAVA_HOME
+echo ::
+set /p variaveisdeambiente=":: Deseja baixar? (s/n) "
+
+IF "%variaveisdeambiente%" == "s" (
+    echo Windows Registry Editor Version 5.00 >> editarvariaveis.reg
+    echo [HKEY_CURRENT_USER\Environment] >> editarvariaveis.reg
+    echo "ANDROID_HOME"="C:\\thiag\\%USERNAME%\\AppData\\Local\\Android\\Sdk" >> editarvariaveis.reg
+    echo "ANDROID_STUDIO_HOME"="C:\\Program Files\\Android\\Android Studio" >> editarvariaveis.reg
+    echo "ANDROID_SDK_ROOT"="C:\\thiag\\%USERNAME%\\AppData\\Local\\Android\\Sdk" >> editarvariaveis.reg
+    echo "JAVA_HOME"="C:\\Program Files\\Java\\jdk-17" >> editarvariaveis.reg
+    echo.
+    echo Foi baixado!
+    echo.
+    pause
+    goto diversos_configuracoes
+) ELSE (
+    goto diversos_configuracoes
+)
+
 :menu_git
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
