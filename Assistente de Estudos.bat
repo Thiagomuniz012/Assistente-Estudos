@@ -117,6 +117,34 @@ IF "%opcao_diversos_download%"=="0" (
     goto diversos_download
 )
 
+:diversos_download_vscode
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download VSCode:
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: VSCode versao 1.84.2
+echo ::
+set /p baixar_vscode=":: Deseja baixar? (s/n) "
+
+    set "vscodeDownloadPath=C:\Users\%username%\Downloads\VSCodeUserSetup-x64-1.84.2.exe"
+    set "vscodeDownloadURL=https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeUserSetup-x64-1.84.2.exe"
+
+IF "%baixar_vscode%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %vscodeDownloadURL% %vscodeDownloadPath%
+
+    start "" %vscodeDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
 :diversos_download_chrome
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -192,34 +220,6 @@ IF "%baixar_git%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %GitDownloadURL% %GitDownloadPath%
 
     start "" %GitDownloadPath%
-
-    pause
-    goto diversos_download
-) ELSE (
-    goto diversos_download
-)
-
-:diversos_download_vscode
-cls
-ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO :: Download VSCode:
-ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO ::
-echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
-echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
-echo ::
-echo :: VSCode versao 1.84.2
-echo ::
-set /p baixar_vscode=":: Deseja baixar? (s/n) "
-
-    set "vscodeDownloadPath=C:\Users\%username%\Downloads\VSCodeUserSetup-x64-1.84.2.exe"
-    set "vscodeDownloadURL=https://az764295.vo.msecnd.net/stable/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/VSCodeUserSetup-x64-1.84.2.exe"
-
-IF "%baixar_vscode%" == "s" (
-
-    bitsadmin /transfer AcessoRemoto /priority normal %vscodeDownloadURL% %vscodeDownloadPath%
-
-    start "" %vscodeDownloadPath%
 
     pause
     goto diversos_download
