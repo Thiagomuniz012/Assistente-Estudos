@@ -292,12 +292,12 @@ ECHO ::
 echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
 echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
 echo ::
-echo :: NetBeans versao 19
+echo :: NetBeans versao 20
 echo ::
 set /p baixar_netbeans=":: Deseja baixar? (s/n) "
 
-    set "netbeansDownloadPath=C:\Users\%username%\Downloads\Apache-NetBeans-19-bin-windows-x64.exe"
-    set "netbeansDownloadURL=https://dlcdn.apache.org/netbeans/netbeans-installers/19/Apache-NetBeans-19-bin-windows-x64.exe"
+    set "netbeansDownloadPath=C:\Users\%username%\Downloads\Apache-NetBeans-20r1-bin-windows-x64.exe"
+    set "netbeansDownloadURL=https://dlcdn.apache.org/netbeans/netbeans-installers/20/Apache-NetBeans-20r1-bin-windows-x64.exe"
 
 IF "%baixar_netbeans%" == "s" (
 
