@@ -84,6 +84,7 @@ ECHO :: 8 - Download MongoDB Compass
 ECHO :: 9 - Download MySQL
 ECHO :: 10 - Download MySQL Workbench
 ECHO :: 11 - Download Virtual Box
+ECHO :: 12 - Download OutSystems
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_diversos_download=":: Digite o numero da opcao desejada: "
 
@@ -111,6 +112,8 @@ IF "%opcao_diversos_download%"=="0" (
     goto diversos_download_mysqlworkbench
 ) ELSE IF "%opcao_diversos_download%"=="11" (
     goto diversos_download_virtualbox
+) ELSE IF "%opcao_diversos_download%"=="12" (
+    goto diversos_download_outsystems
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -422,6 +425,35 @@ IF "%baixar_virtualbox%" == "s" (
 ) ELSE (
     goto diversos_download
 )
+
+:diversos_download_outsystems
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download OutSystems
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: OutSystems versao 11.54.38.63033
+echo ::
+set /p baixar_outsystems=":: Deseja baixar? (s/n) "
+
+    set "outsystemsDownloadPath=C:\Users\%username%\Downloads\ServiceStudio-11.54.38.63033.exe"
+    set "outsystemsDownloadURL=https://dxejw4oyledi.cloudfront.net/repository/servicestudio/11.54.38.63033/ServiceStudio-11.54.38.63033.exe"
+
+IF "%baixar_outsystems%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %outsystemsDownloadURL% %outsystemsDownloadPath%
+
+    start "" %outsystemsDownloadPath%
+
+    pause
+    goto diversos_download
+) ELSE (
+    goto diversos_download
+)
+
 
 :diversos_configuracoes
 cls
