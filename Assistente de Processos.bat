@@ -45,6 +45,7 @@ ECHO :: 9 - Download MySQL
 ECHO :: 10 - Download MySQL Workbench
 ECHO :: 11 - Download Virtual Box
 ECHO :: 12 - Download OutSystems
+ECHO :: 13 - DOwnload Ruby SASS
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_menu_downloads=":: Digite o numero da opcao desejada: "
 
@@ -74,6 +75,8 @@ IF "%opcao_menu_downloads%"=="0" (
     goto menu_downloads_virtualbox
 ) ELSE IF "%opcao_menu_downloads%"=="12" (
     goto menu_downloads_outsystems
+) ELSE IF "%opcao_menu_downloads%"=="13" (
+    goto menu_downloads_rubysass
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -414,6 +417,33 @@ IF "%baixar_outsystems%" == "s" (
     goto menu_downloads
 )
 
+:menu_downloads_rubysass
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Ruby SASS
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Ruby versao 3.2.3-1
+echo ::
+set /p baixar_rubysass=":: Deseja baixar? (s/n) "
+
+    set "rubysassDownloadPath=C:\Users\%username%\Downloads\rubyinstaller-3.2.3-1-x64.exe"
+    set "rubysassDownloadURL=https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.2.3-1/rubyinstaller-3.2.3-1-x64.exe"
+
+IF "%baixar_rubysass%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %rubysassDownloadURL% %rubysassDownloadPath%
+
+    start "" %rubysassDownloadPath%
+
+    pause
+    goto menu_downloads
+) ELSE (
+    goto menu_downloads
+)
 
 :menu_configuracoes
 cls
