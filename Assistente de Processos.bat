@@ -46,7 +46,8 @@ ECHO :: 10 - Download MySQL Workbench
 ECHO :: 11 - Download Virtual Box
 ECHO :: 12 - Download OutSystems
 ECHO :: 13 - Download Ruby SASS
-ECHO :: 14 - Download Postgresql
+ECHO :: 14 - Download PostgreSQL
+ECHO :: 15 - Download Docker Desktop
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_menu_downloads=":: Digite o numero da opcao desejada: "
 
@@ -80,6 +81,8 @@ IF "%opcao_menu_downloads%"=="0" (
     goto menu_downloads_rubysass
 ) ELSE IF "%opcao_menu_downloads%"=="14" (
     goto menu_downloads_postgresql
+) ELSE IF "%opcao_menu_downloads%"=="15" (
+    goto menu_downloads_docker
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -451,13 +454,13 @@ IF "%baixar_rubysass%" == "s" (
 :menu_downloads_postgresql
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
-ECHO :: Download Postgresql
+ECHO :: Download PostgreSQL
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO ::
 echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
 echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
 echo ::
-echo :: Postgresql versao 16.2
+echo :: PostgreSQL versao 16.2
 echo ::
 set /p baixar_postgresql=":: Deseja baixar? (s/n) "
 
@@ -469,6 +472,34 @@ IF "%baixar_postgresql%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %postgresqlDownloadURL% %postgresqlDownloadPath%
 
     start "" %postgresqlDownloadPath%
+
+    pause
+    goto menu_downloads
+) ELSE (
+    goto menu_downloads
+)
+
+:menu_downloads_docker
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Docker Desktop
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Docker versao 4.27.2
+echo ::
+set /p baixar_docker=":: Deseja baixar? (s/n) "
+
+    set "dockerDownloadPath=C:\Users\%username%\Downloads\Docker" "Desktop" "Installer.exe"
+    set "dockerDownloadURL=https://desktop.docker.com/win/main/amd64/Docker" "Desktop" "Installer.exe"
+
+IF "%baixar_docker%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %dockerDownloadURL% %dockerDownloadPath%
+
+    start "" %dockerDownloadPath%
 
     pause
     goto menu_downloads
