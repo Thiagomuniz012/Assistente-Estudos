@@ -45,7 +45,8 @@ ECHO :: 9 - Download MySQL
 ECHO :: 10 - Download MySQL Workbench
 ECHO :: 11 - Download Virtual Box
 ECHO :: 12 - Download OutSystems
-ECHO :: 13 - DOwnload Ruby SASS
+ECHO :: 13 - Download Ruby SASS
+ECHO :: 14 - Download Postgresql
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_menu_downloads=":: Digite o numero da opcao desejada: "
 
@@ -77,6 +78,8 @@ IF "%opcao_menu_downloads%"=="0" (
     goto menu_downloads_outsystems
 ) ELSE IF "%opcao_menu_downloads%"=="13" (
     goto menu_downloads_rubysass
+) ELSE IF "%opcao_menu_downloads%"=="14" (
+    goto menu_downloads_postgresql
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -438,6 +441,34 @@ IF "%baixar_rubysass%" == "s" (
     bitsadmin /transfer AcessoRemoto /priority normal %rubysassDownloadURL% %rubysassDownloadPath%
 
     start "" %rubysassDownloadPath%
+
+    pause
+    goto menu_downloads
+) ELSE (
+    goto menu_downloads
+)
+
+:menu_downloads_postgresql
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Postgresql
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Postgresql versao 16.2
+echo ::
+set /p baixar_postgresql=":: Deseja baixar? (s/n) "
+
+    set "postgresqlDownloadPath=C:\Users\%username%\Downloads\postgresql-16.2-1-windows-x64.exe"
+    set "postgresqlDownloadURL=https://get.enterprisedb.com/postgresql/postgresql-16.2-1-windows-x64.exe"
+
+IF "%baixar_postgresql%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %postgresqlDownloadURL% %postgresqlDownloadPath%
+
+    start "" %postgresqlDownloadPath%
 
     pause
     goto menu_downloads
