@@ -48,6 +48,7 @@ ECHO :: 12 - Download OutSystems
 ECHO :: 13 - Download Ruby SASS
 ECHO :: 14 - Download PostgreSQL
 ECHO :: 15 - Download Docker Desktop
+ECHO :: 16 - Download Python
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_menu_downloads=":: Digite o numero da opcao desejada: "
 
@@ -83,6 +84,8 @@ IF "%opcao_menu_downloads%"=="0" (
     goto menu_downloads_postgresql
 ) ELSE IF "%opcao_menu_downloads%"=="15" (
     goto menu_downloads_docker
+) ELSE IF "%opcao_menu_downloads%"=="16" (
+    goto menu_downloads_python
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -507,6 +510,34 @@ IF "%baixar_docker%" == "s" (
     goto menu_downloads
 )
 
+:menu_downloads_python
+cls
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO :: Download Python
+ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
+ECHO ::
+echo :: Se voce estiver em uma maquina com disco C o arquivo sera baixado
+echo :: na pasta Downloads, logo apos baixar sera executado, apenas termine a instalacao
+echo ::
+echo :: Python versao 3.12.2
+echo ::
+set /p baixar_python=":: Deseja baixar? (s/n) "
+
+    set "pythonDownloadPath=C:\Users\%username%\Downloads\python-3.12.2-amd64.exe"
+    set "pythonDownloadURL=https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe"
+
+IF "%baixar_python%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %pythonDownloadURL% %pythonDownloadPath%
+
+    start "" %pythonDownloadPath%
+
+    pause
+    goto menu_downloads
+) ELSE (
+    goto menu_downloads
+)
+
 :menu_configuracoes
 cls
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -521,6 +552,7 @@ ECHO :: 3 - Mostrar dependencias globais
 ECHO :: 4 - Instalar principais dependencias node de forma global
 ECHO :: 5 - Instalar principais extensoes VSCode
 ECHO :: 6 - Script para setar variaveis de ambiente do Java e Android Studio
+ECHO :: 7 - Instalar pip para o Python
 ECHO :::::::::::::::::::::::::::::::::::::::::::::::::::::
 set /p opcao_menu_configuracoes=":: Digite o numero da opcao desejada: "
 
@@ -538,6 +570,8 @@ IF "%opcao_menu_configuracoes%"=="0" (
     goto menu_configuracoes_instalarextensoesvscode
 ) ELSE IF "%opcao_menu_configuracoes%"=="6" (
     goto menu_configuracoes_variaveisdeambiente
+) ELSE IF "%opcao_menu_configuracoes%"=="7" (
+    goto menu_configuracoes_pippyhton
 ) ELSE (
     ECHO Opcao invalida! Por favor, escolha uma opcao valida.
     pause
@@ -671,6 +705,7 @@ IF "%instalarextensoesvscode%" == "s" (
 && call code --install-extension kreativ-software.csharpextensions ^
 && call code --install-extension ms-dotnettools.csharp ^
 && call code --install-extension ms-dotnettools.csdevkit ^
+&& call code --install-extension ms-python.python ^
     pause
     goto menu_configuracoes
 ) ELSE (
@@ -702,6 +737,33 @@ IF "%variaveisdeambiente%" == "s" (
     echo.
     echo Foi baixado!
     echo.
+    pause
+    goto menu_configuracoes
+) ELSE (
+    goto menu_configuracoes
+)
+
+:menu_configuracoes_pippyhton
+cls
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo :: Instalar o pip:
+echo :::::::::::::::::::::::::::::::::::::::::::::::::::::
+echo ::
+echo :: Sera baixado um arquivo .py no mesmo diretorio que este batch
+echo ::
+echo :: Sera instalado gerenciador de pacotes pip do python
+echo ::
+set /p pippyhton=":: Deseja baixar? (s/n) "
+
+    set "pipDownloadPath=C:\Users\%username%\Downloads\get-pip.py"
+    set "pipDownloadURL=https://bootstrap.pypa.io/get-pip.py"
+
+IF "%pippyhton%" == "s" (
+
+    bitsadmin /transfer AcessoRemoto /priority normal %pipDownloadURL% %pipDownloadPath%
+
+    start %pipDownloadPath%
+    
     pause
     goto menu_configuracoes
 ) ELSE (
